@@ -55,7 +55,7 @@ class InputfieldDependencyHelper extends WireData implements Module, Configurabl
 			foreach($selectable as $p) {
 				++$i;
 				if($i > $this->valueLimit) break;
-				$out[$p->id] = (string) $p->get('title|name');
+				$out[$p->id] = (string) $p->getFormatted('title|name');
 			}
 		}
 
@@ -164,8 +164,8 @@ class InputfieldDependencyHelper extends WireData implements Module, Configurabl
 		$f = $modules->get('InputfieldInteger');
 		$f_name = 'valueLimit';
 		$f->name = $f_name;
-		$f->label = $this->_('Limit for selectable values');
-		$f->description = $this->_("A limit for selectable pages/options, so the menu doesn't get excessively large.");
+		$f->label = $this->_('Menu limit for selectable options');
+		$f->description = $this->_("A limit for selectable pages/options, so the menu doesn't get excessively long.");
 		$f->value = $this->$f_name;
 		$inputfields->add($f);
 	}
